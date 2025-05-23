@@ -13,7 +13,6 @@ enum AuthProvider {
 }
 
 @freezed
-@JsonSerializable()
 class User with _$User {
   const factory User({
     required String id,
@@ -31,6 +30,8 @@ class User with _$User {
     AuthProvider? provider,
     @JsonKey(name: 'created_at') required DateTime createdAt,
     @JsonKey(name: 'updated_at') required DateTime updatedAt,
+    @Default(false) bool isActive,
+    @Default(false) bool isVerified,
   }) = _User;
 
   factory User.fromJson(Map<String, dynamic> json) => _$UserFromJson(json);

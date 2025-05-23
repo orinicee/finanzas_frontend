@@ -190,22 +190,15 @@ RegisterRequest _$RegisterRequestFromJson(Map<String, dynamic> json) {
 mixin _$RegisterRequest {
   String get email => throw _privateConstructorUsedError;
   String get password => throw _privateConstructorUsedError;
-  @JsonKey(name: 'full_name')
   String get fullName => throw _privateConstructorUsedError;
-  @JsonKey(name: 'document_type')
   String get documentType => throw _privateConstructorUsedError;
-  @JsonKey(name: 'document_number')
   String get documentNumber => throw _privateConstructorUsedError;
-  @JsonKey(name: 'tax_regime')
   String get taxRegime => throw _privateConstructorUsedError;
-  @JsonKey(name: 'person_type')
   String get personType => throw _privateConstructorUsedError;
   String get city => throw _privateConstructorUsedError;
   String get department => throw _privateConstructorUsedError;
   String get address => throw _privateConstructorUsedError;
   String get phone => throw _privateConstructorUsedError;
-  AuthProvider get provider => throw _privateConstructorUsedError;
-  bool get acceptTerms => throw _privateConstructorUsedError;
 
   /// Serializes this RegisterRequest to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -226,17 +219,15 @@ abstract class $RegisterRequestCopyWith<$Res> {
   $Res call(
       {String email,
       String password,
-      @JsonKey(name: 'full_name') String fullName,
-      @JsonKey(name: 'document_type') String documentType,
-      @JsonKey(name: 'document_number') String documentNumber,
-      @JsonKey(name: 'tax_regime') String taxRegime,
-      @JsonKey(name: 'person_type') String personType,
+      String fullName,
+      String documentType,
+      String documentNumber,
+      String taxRegime,
+      String personType,
       String city,
       String department,
       String address,
-      String phone,
-      AuthProvider provider,
-      bool acceptTerms});
+      String phone});
 }
 
 /// @nodoc
@@ -265,8 +256,6 @@ class _$RegisterRequestCopyWithImpl<$Res, $Val extends RegisterRequest>
     Object? department = null,
     Object? address = null,
     Object? phone = null,
-    Object? provider = null,
-    Object? acceptTerms = null,
   }) {
     return _then(_value.copyWith(
       email: null == email
@@ -313,14 +302,6 @@ class _$RegisterRequestCopyWithImpl<$Res, $Val extends RegisterRequest>
           ? _value.phone
           : phone // ignore: cast_nullable_to_non_nullable
               as String,
-      provider: null == provider
-          ? _value.provider
-          : provider // ignore: cast_nullable_to_non_nullable
-              as AuthProvider,
-      acceptTerms: null == acceptTerms
-          ? _value.acceptTerms
-          : acceptTerms // ignore: cast_nullable_to_non_nullable
-              as bool,
     ) as $Val);
   }
 }
@@ -336,17 +317,15 @@ abstract class _$$RegisterRequestImplCopyWith<$Res>
   $Res call(
       {String email,
       String password,
-      @JsonKey(name: 'full_name') String fullName,
-      @JsonKey(name: 'document_type') String documentType,
-      @JsonKey(name: 'document_number') String documentNumber,
-      @JsonKey(name: 'tax_regime') String taxRegime,
-      @JsonKey(name: 'person_type') String personType,
+      String fullName,
+      String documentType,
+      String documentNumber,
+      String taxRegime,
+      String personType,
       String city,
       String department,
       String address,
-      String phone,
-      AuthProvider provider,
-      bool acceptTerms});
+      String phone});
 }
 
 /// @nodoc
@@ -373,8 +352,6 @@ class __$$RegisterRequestImplCopyWithImpl<$Res>
     Object? department = null,
     Object? address = null,
     Object? phone = null,
-    Object? provider = null,
-    Object? acceptTerms = null,
   }) {
     return _then(_$RegisterRequestImpl(
       email: null == email
@@ -421,14 +398,6 @@ class __$$RegisterRequestImplCopyWithImpl<$Res>
           ? _value.phone
           : phone // ignore: cast_nullable_to_non_nullable
               as String,
-      provider: null == provider
-          ? _value.provider
-          : provider // ignore: cast_nullable_to_non_nullable
-              as AuthProvider,
-      acceptTerms: null == acceptTerms
-          ? _value.acceptTerms
-          : acceptTerms // ignore: cast_nullable_to_non_nullable
-              as bool,
     ));
   }
 }
@@ -439,17 +408,15 @@ class _$RegisterRequestImpl implements _RegisterRequest {
   const _$RegisterRequestImpl(
       {required this.email,
       required this.password,
-      @JsonKey(name: 'full_name') required this.fullName,
-      @JsonKey(name: 'document_type') required this.documentType,
-      @JsonKey(name: 'document_number') required this.documentNumber,
-      @JsonKey(name: 'tax_regime') required this.taxRegime,
-      @JsonKey(name: 'person_type') required this.personType,
+      required this.fullName,
+      required this.documentType,
+      required this.documentNumber,
+      required this.taxRegime,
+      required this.personType,
       required this.city,
       required this.department,
       required this.address,
-      required this.phone,
-      this.provider = AuthProvider.email,
-      this.acceptTerms = false});
+      required this.phone});
 
   factory _$RegisterRequestImpl.fromJson(Map<String, dynamic> json) =>
       _$$RegisterRequestImplFromJson(json);
@@ -459,19 +426,14 @@ class _$RegisterRequestImpl implements _RegisterRequest {
   @override
   final String password;
   @override
-  @JsonKey(name: 'full_name')
   final String fullName;
   @override
-  @JsonKey(name: 'document_type')
   final String documentType;
   @override
-  @JsonKey(name: 'document_number')
   final String documentNumber;
   @override
-  @JsonKey(name: 'tax_regime')
   final String taxRegime;
   @override
-  @JsonKey(name: 'person_type')
   final String personType;
   @override
   final String city;
@@ -481,16 +443,10 @@ class _$RegisterRequestImpl implements _RegisterRequest {
   final String address;
   @override
   final String phone;
-  @override
-  @JsonKey()
-  final AuthProvider provider;
-  @override
-  @JsonKey()
-  final bool acceptTerms;
 
   @override
   String toString() {
-    return 'RegisterRequest(email: $email, password: $password, fullName: $fullName, documentType: $documentType, documentNumber: $documentNumber, taxRegime: $taxRegime, personType: $personType, city: $city, department: $department, address: $address, phone: $phone, provider: $provider, acceptTerms: $acceptTerms)';
+    return 'RegisterRequest(email: $email, password: $password, fullName: $fullName, documentType: $documentType, documentNumber: $documentNumber, taxRegime: $taxRegime, personType: $personType, city: $city, department: $department, address: $address, phone: $phone)';
   }
 
   @override
@@ -515,11 +471,7 @@ class _$RegisterRequestImpl implements _RegisterRequest {
             (identical(other.department, department) ||
                 other.department == department) &&
             (identical(other.address, address) || other.address == address) &&
-            (identical(other.phone, phone) || other.phone == phone) &&
-            (identical(other.provider, provider) ||
-                other.provider == provider) &&
-            (identical(other.acceptTerms, acceptTerms) ||
-                other.acceptTerms == acceptTerms));
+            (identical(other.phone, phone) || other.phone == phone));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
@@ -536,9 +488,7 @@ class _$RegisterRequestImpl implements _RegisterRequest {
       city,
       department,
       address,
-      phone,
-      provider,
-      acceptTerms);
+      phone);
 
   /// Create a copy of RegisterRequest
   /// with the given fields replaced by the non-null parameter values.
@@ -561,17 +511,15 @@ abstract class _RegisterRequest implements RegisterRequest {
   const factory _RegisterRequest(
       {required final String email,
       required final String password,
-      @JsonKey(name: 'full_name') required final String fullName,
-      @JsonKey(name: 'document_type') required final String documentType,
-      @JsonKey(name: 'document_number') required final String documentNumber,
-      @JsonKey(name: 'tax_regime') required final String taxRegime,
-      @JsonKey(name: 'person_type') required final String personType,
+      required final String fullName,
+      required final String documentType,
+      required final String documentNumber,
+      required final String taxRegime,
+      required final String personType,
       required final String city,
       required final String department,
       required final String address,
-      required final String phone,
-      final AuthProvider provider,
-      final bool acceptTerms}) = _$RegisterRequestImpl;
+      required final String phone}) = _$RegisterRequestImpl;
 
   factory _RegisterRequest.fromJson(Map<String, dynamic> json) =
       _$RegisterRequestImpl.fromJson;
@@ -581,19 +529,14 @@ abstract class _RegisterRequest implements RegisterRequest {
   @override
   String get password;
   @override
-  @JsonKey(name: 'full_name')
   String get fullName;
   @override
-  @JsonKey(name: 'document_type')
   String get documentType;
   @override
-  @JsonKey(name: 'document_number')
   String get documentNumber;
   @override
-  @JsonKey(name: 'tax_regime')
   String get taxRegime;
   @override
-  @JsonKey(name: 'person_type')
   String get personType;
   @override
   String get city;
@@ -603,10 +546,6 @@ abstract class _RegisterRequest implements RegisterRequest {
   String get address;
   @override
   String get phone;
-  @override
-  AuthProvider get provider;
-  @override
-  bool get acceptTerms;
 
   /// Create a copy of RegisterRequest
   /// with the given fields replaced by the non-null parameter values.

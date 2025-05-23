@@ -43,6 +43,8 @@ mixin _$User {
   DateTime get createdAt => throw _privateConstructorUsedError;
   @JsonKey(name: 'updated_at')
   DateTime get updatedAt => throw _privateConstructorUsedError;
+  bool get isActive => throw _privateConstructorUsedError;
+  bool get isVerified => throw _privateConstructorUsedError;
 
   /// Serializes this User to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -73,7 +75,9 @@ abstract class $UserCopyWith<$Res> {
       @JsonKey(name: 'social_id') String? socialId,
       AuthProvider? provider,
       @JsonKey(name: 'created_at') DateTime createdAt,
-      @JsonKey(name: 'updated_at') DateTime updatedAt});
+      @JsonKey(name: 'updated_at') DateTime updatedAt,
+      bool isActive,
+      bool isVerified});
 }
 
 /// @nodoc
@@ -106,6 +110,8 @@ class _$UserCopyWithImpl<$Res, $Val extends User>
     Object? provider = freezed,
     Object? createdAt = null,
     Object? updatedAt = null,
+    Object? isActive = null,
+    Object? isVerified = null,
   }) {
     return _then(_value.copyWith(
       id: null == id
@@ -168,6 +174,14 @@ class _$UserCopyWithImpl<$Res, $Val extends User>
           ? _value.updatedAt
           : updatedAt // ignore: cast_nullable_to_non_nullable
               as DateTime,
+      isActive: null == isActive
+          ? _value.isActive
+          : isActive // ignore: cast_nullable_to_non_nullable
+              as bool,
+      isVerified: null == isVerified
+          ? _value.isVerified
+          : isVerified // ignore: cast_nullable_to_non_nullable
+              as bool,
     ) as $Val);
   }
 }
@@ -194,7 +208,9 @@ abstract class _$$UserImplCopyWith<$Res> implements $UserCopyWith<$Res> {
       @JsonKey(name: 'social_id') String? socialId,
       AuthProvider? provider,
       @JsonKey(name: 'created_at') DateTime createdAt,
-      @JsonKey(name: 'updated_at') DateTime updatedAt});
+      @JsonKey(name: 'updated_at') DateTime updatedAt,
+      bool isActive,
+      bool isVerified});
 }
 
 /// @nodoc
@@ -224,6 +240,8 @@ class __$$UserImplCopyWithImpl<$Res>
     Object? provider = freezed,
     Object? createdAt = null,
     Object? updatedAt = null,
+    Object? isActive = null,
+    Object? isVerified = null,
   }) {
     return _then(_$UserImpl(
       id: null == id
@@ -286,6 +304,14 @@ class __$$UserImplCopyWithImpl<$Res>
           ? _value.updatedAt
           : updatedAt // ignore: cast_nullable_to_non_nullable
               as DateTime,
+      isActive: null == isActive
+          ? _value.isActive
+          : isActive // ignore: cast_nullable_to_non_nullable
+              as bool,
+      isVerified: null == isVerified
+          ? _value.isVerified
+          : isVerified // ignore: cast_nullable_to_non_nullable
+              as bool,
     ));
   }
 }
@@ -308,7 +334,9 @@ class _$UserImpl implements _User {
       @JsonKey(name: 'social_id') this.socialId,
       this.provider,
       @JsonKey(name: 'created_at') required this.createdAt,
-      @JsonKey(name: 'updated_at') required this.updatedAt});
+      @JsonKey(name: 'updated_at') required this.updatedAt,
+      this.isActive = false,
+      this.isVerified = false});
 
   factory _$UserImpl.fromJson(Map<String, dynamic> json) =>
       _$$UserImplFromJson(json);
@@ -351,10 +379,16 @@ class _$UserImpl implements _User {
   @override
   @JsonKey(name: 'updated_at')
   final DateTime updatedAt;
+  @override
+  @JsonKey()
+  final bool isActive;
+  @override
+  @JsonKey()
+  final bool isVerified;
 
   @override
   String toString() {
-    return 'User(id: $id, fullName: $fullName, email: $email, documentType: $documentType, documentNumber: $documentNumber, taxRegime: $taxRegime, personType: $personType, city: $city, department: $department, address: $address, phone: $phone, socialId: $socialId, provider: $provider, createdAt: $createdAt, updatedAt: $updatedAt)';
+    return 'User(id: $id, fullName: $fullName, email: $email, documentType: $documentType, documentNumber: $documentNumber, taxRegime: $taxRegime, personType: $personType, city: $city, department: $department, address: $address, phone: $phone, socialId: $socialId, provider: $provider, createdAt: $createdAt, updatedAt: $updatedAt, isActive: $isActive, isVerified: $isVerified)';
   }
 
   @override
@@ -386,7 +420,11 @@ class _$UserImpl implements _User {
             (identical(other.createdAt, createdAt) ||
                 other.createdAt == createdAt) &&
             (identical(other.updatedAt, updatedAt) ||
-                other.updatedAt == updatedAt));
+                other.updatedAt == updatedAt) &&
+            (identical(other.isActive, isActive) ||
+                other.isActive == isActive) &&
+            (identical(other.isVerified, isVerified) ||
+                other.isVerified == isVerified));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
@@ -407,7 +445,9 @@ class _$UserImpl implements _User {
       socialId,
       provider,
       createdAt,
-      updatedAt);
+      updatedAt,
+      isActive,
+      isVerified);
 
   /// Create a copy of User
   /// with the given fields replaced by the non-null parameter values.
@@ -441,8 +481,9 @@ abstract class _User implements User {
       @JsonKey(name: 'social_id') final String? socialId,
       final AuthProvider? provider,
       @JsonKey(name: 'created_at') required final DateTime createdAt,
-      @JsonKey(name: 'updated_at')
-      required final DateTime updatedAt}) = _$UserImpl;
+      @JsonKey(name: 'updated_at') required final DateTime updatedAt,
+      final bool isActive,
+      final bool isVerified}) = _$UserImpl;
 
   factory _User.fromJson(Map<String, dynamic> json) = _$UserImpl.fromJson;
 
@@ -484,6 +525,10 @@ abstract class _User implements User {
   @override
   @JsonKey(name: 'updated_at')
   DateTime get updatedAt;
+  @override
+  bool get isActive;
+  @override
+  bool get isVerified;
 
   /// Create a copy of User
   /// with the given fields replaced by the non-null parameter values.
