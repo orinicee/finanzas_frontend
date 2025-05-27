@@ -21,28 +21,17 @@ User _$UserFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$User {
   String get id => throw _privateConstructorUsedError;
-  @JsonKey(name: 'full_name')
-  String get fullName => throw _privateConstructorUsedError;
   String get email => throw _privateConstructorUsedError;
-  @JsonKey(name: 'document_type')
-  String get documentType => throw _privateConstructorUsedError;
-  @JsonKey(name: 'document_number')
-  String get documentNumber => throw _privateConstructorUsedError;
-  @JsonKey(name: 'tax_regime')
-  String get taxRegime => throw _privateConstructorUsedError;
-  @JsonKey(name: 'person_type')
-  String get personType => throw _privateConstructorUsedError;
-  String get city => throw _privateConstructorUsedError;
-  String get department => throw _privateConstructorUsedError;
-  String get address => throw _privateConstructorUsedError;
-  String get phone => throw _privateConstructorUsedError;
-  @JsonKey(name: 'social_id')
+  String? get fullName => throw _privateConstructorUsedError;
+  String? get documentType => throw _privateConstructorUsedError;
+  String? get documentNumber => throw _privateConstructorUsedError;
+  String? get taxRegime => throw _privateConstructorUsedError;
+  String? get personType => throw _privateConstructorUsedError;
+  String? get city => throw _privateConstructorUsedError;
+  String? get department => throw _privateConstructorUsedError;
+  String? get address => throw _privateConstructorUsedError;
+  String? get phone => throw _privateConstructorUsedError;
   String? get socialId => throw _privateConstructorUsedError;
-  AuthProvider? get provider => throw _privateConstructorUsedError;
-  @JsonKey(name: 'created_at')
-  DateTime get createdAt => throw _privateConstructorUsedError;
-  @JsonKey(name: 'updated_at')
-  DateTime get updatedAt => throw _privateConstructorUsedError;
   bool get isActive => throw _privateConstructorUsedError;
   bool get isVerified => throw _privateConstructorUsedError;
 
@@ -62,20 +51,17 @@ abstract class $UserCopyWith<$Res> {
   @useResult
   $Res call(
       {String id,
-      @JsonKey(name: 'full_name') String fullName,
       String email,
-      @JsonKey(name: 'document_type') String documentType,
-      @JsonKey(name: 'document_number') String documentNumber,
-      @JsonKey(name: 'tax_regime') String taxRegime,
-      @JsonKey(name: 'person_type') String personType,
-      String city,
-      String department,
-      String address,
-      String phone,
-      @JsonKey(name: 'social_id') String? socialId,
-      AuthProvider? provider,
-      @JsonKey(name: 'created_at') DateTime createdAt,
-      @JsonKey(name: 'updated_at') DateTime updatedAt,
+      String? fullName,
+      String? documentType,
+      String? documentNumber,
+      String? taxRegime,
+      String? personType,
+      String? city,
+      String? department,
+      String? address,
+      String? phone,
+      String? socialId,
       bool isActive,
       bool isVerified});
 }
@@ -96,20 +82,17 @@ class _$UserCopyWithImpl<$Res, $Val extends User>
   @override
   $Res call({
     Object? id = null,
-    Object? fullName = null,
     Object? email = null,
-    Object? documentType = null,
-    Object? documentNumber = null,
-    Object? taxRegime = null,
-    Object? personType = null,
-    Object? city = null,
-    Object? department = null,
-    Object? address = null,
-    Object? phone = null,
+    Object? fullName = freezed,
+    Object? documentType = freezed,
+    Object? documentNumber = freezed,
+    Object? taxRegime = freezed,
+    Object? personType = freezed,
+    Object? city = freezed,
+    Object? department = freezed,
+    Object? address = freezed,
+    Object? phone = freezed,
     Object? socialId = freezed,
-    Object? provider = freezed,
-    Object? createdAt = null,
-    Object? updatedAt = null,
     Object? isActive = null,
     Object? isVerified = null,
   }) {
@@ -118,62 +101,50 @@ class _$UserCopyWithImpl<$Res, $Val extends User>
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as String,
-      fullName: null == fullName
-          ? _value.fullName
-          : fullName // ignore: cast_nullable_to_non_nullable
-              as String,
       email: null == email
           ? _value.email
           : email // ignore: cast_nullable_to_non_nullable
               as String,
-      documentType: null == documentType
+      fullName: freezed == fullName
+          ? _value.fullName
+          : fullName // ignore: cast_nullable_to_non_nullable
+              as String?,
+      documentType: freezed == documentType
           ? _value.documentType
           : documentType // ignore: cast_nullable_to_non_nullable
-              as String,
-      documentNumber: null == documentNumber
+              as String?,
+      documentNumber: freezed == documentNumber
           ? _value.documentNumber
           : documentNumber // ignore: cast_nullable_to_non_nullable
-              as String,
-      taxRegime: null == taxRegime
+              as String?,
+      taxRegime: freezed == taxRegime
           ? _value.taxRegime
           : taxRegime // ignore: cast_nullable_to_non_nullable
-              as String,
-      personType: null == personType
+              as String?,
+      personType: freezed == personType
           ? _value.personType
           : personType // ignore: cast_nullable_to_non_nullable
-              as String,
-      city: null == city
+              as String?,
+      city: freezed == city
           ? _value.city
           : city // ignore: cast_nullable_to_non_nullable
-              as String,
-      department: null == department
+              as String?,
+      department: freezed == department
           ? _value.department
           : department // ignore: cast_nullable_to_non_nullable
-              as String,
-      address: null == address
+              as String?,
+      address: freezed == address
           ? _value.address
           : address // ignore: cast_nullable_to_non_nullable
-              as String,
-      phone: null == phone
+              as String?,
+      phone: freezed == phone
           ? _value.phone
           : phone // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       socialId: freezed == socialId
           ? _value.socialId
           : socialId // ignore: cast_nullable_to_non_nullable
               as String?,
-      provider: freezed == provider
-          ? _value.provider
-          : provider // ignore: cast_nullable_to_non_nullable
-              as AuthProvider?,
-      createdAt: null == createdAt
-          ? _value.createdAt
-          : createdAt // ignore: cast_nullable_to_non_nullable
-              as DateTime,
-      updatedAt: null == updatedAt
-          ? _value.updatedAt
-          : updatedAt // ignore: cast_nullable_to_non_nullable
-              as DateTime,
       isActive: null == isActive
           ? _value.isActive
           : isActive // ignore: cast_nullable_to_non_nullable
@@ -195,20 +166,17 @@ abstract class _$$UserImplCopyWith<$Res> implements $UserCopyWith<$Res> {
   @useResult
   $Res call(
       {String id,
-      @JsonKey(name: 'full_name') String fullName,
       String email,
-      @JsonKey(name: 'document_type') String documentType,
-      @JsonKey(name: 'document_number') String documentNumber,
-      @JsonKey(name: 'tax_regime') String taxRegime,
-      @JsonKey(name: 'person_type') String personType,
-      String city,
-      String department,
-      String address,
-      String phone,
-      @JsonKey(name: 'social_id') String? socialId,
-      AuthProvider? provider,
-      @JsonKey(name: 'created_at') DateTime createdAt,
-      @JsonKey(name: 'updated_at') DateTime updatedAt,
+      String? fullName,
+      String? documentType,
+      String? documentNumber,
+      String? taxRegime,
+      String? personType,
+      String? city,
+      String? department,
+      String? address,
+      String? phone,
+      String? socialId,
       bool isActive,
       bool isVerified});
 }
@@ -226,20 +194,17 @@ class __$$UserImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? id = null,
-    Object? fullName = null,
     Object? email = null,
-    Object? documentType = null,
-    Object? documentNumber = null,
-    Object? taxRegime = null,
-    Object? personType = null,
-    Object? city = null,
-    Object? department = null,
-    Object? address = null,
-    Object? phone = null,
+    Object? fullName = freezed,
+    Object? documentType = freezed,
+    Object? documentNumber = freezed,
+    Object? taxRegime = freezed,
+    Object? personType = freezed,
+    Object? city = freezed,
+    Object? department = freezed,
+    Object? address = freezed,
+    Object? phone = freezed,
     Object? socialId = freezed,
-    Object? provider = freezed,
-    Object? createdAt = null,
-    Object? updatedAt = null,
     Object? isActive = null,
     Object? isVerified = null,
   }) {
@@ -248,62 +213,50 @@ class __$$UserImplCopyWithImpl<$Res>
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as String,
-      fullName: null == fullName
-          ? _value.fullName
-          : fullName // ignore: cast_nullable_to_non_nullable
-              as String,
       email: null == email
           ? _value.email
           : email // ignore: cast_nullable_to_non_nullable
               as String,
-      documentType: null == documentType
+      fullName: freezed == fullName
+          ? _value.fullName
+          : fullName // ignore: cast_nullable_to_non_nullable
+              as String?,
+      documentType: freezed == documentType
           ? _value.documentType
           : documentType // ignore: cast_nullable_to_non_nullable
-              as String,
-      documentNumber: null == documentNumber
+              as String?,
+      documentNumber: freezed == documentNumber
           ? _value.documentNumber
           : documentNumber // ignore: cast_nullable_to_non_nullable
-              as String,
-      taxRegime: null == taxRegime
+              as String?,
+      taxRegime: freezed == taxRegime
           ? _value.taxRegime
           : taxRegime // ignore: cast_nullable_to_non_nullable
-              as String,
-      personType: null == personType
+              as String?,
+      personType: freezed == personType
           ? _value.personType
           : personType // ignore: cast_nullable_to_non_nullable
-              as String,
-      city: null == city
+              as String?,
+      city: freezed == city
           ? _value.city
           : city // ignore: cast_nullable_to_non_nullable
-              as String,
-      department: null == department
+              as String?,
+      department: freezed == department
           ? _value.department
           : department // ignore: cast_nullable_to_non_nullable
-              as String,
-      address: null == address
+              as String?,
+      address: freezed == address
           ? _value.address
           : address // ignore: cast_nullable_to_non_nullable
-              as String,
-      phone: null == phone
+              as String?,
+      phone: freezed == phone
           ? _value.phone
           : phone // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       socialId: freezed == socialId
           ? _value.socialId
           : socialId // ignore: cast_nullable_to_non_nullable
               as String?,
-      provider: freezed == provider
-          ? _value.provider
-          : provider // ignore: cast_nullable_to_non_nullable
-              as AuthProvider?,
-      createdAt: null == createdAt
-          ? _value.createdAt
-          : createdAt // ignore: cast_nullable_to_non_nullable
-              as DateTime,
-      updatedAt: null == updatedAt
-          ? _value.updatedAt
-          : updatedAt // ignore: cast_nullable_to_non_nullable
-              as DateTime,
       isActive: null == isActive
           ? _value.isActive
           : isActive // ignore: cast_nullable_to_non_nullable
@@ -321,20 +274,17 @@ class __$$UserImplCopyWithImpl<$Res>
 class _$UserImpl implements _User {
   const _$UserImpl(
       {required this.id,
-      @JsonKey(name: 'full_name') required this.fullName,
       required this.email,
-      @JsonKey(name: 'document_type') required this.documentType,
-      @JsonKey(name: 'document_number') required this.documentNumber,
-      @JsonKey(name: 'tax_regime') required this.taxRegime,
-      @JsonKey(name: 'person_type') required this.personType,
-      required this.city,
-      required this.department,
-      required this.address,
-      required this.phone,
-      @JsonKey(name: 'social_id') this.socialId,
-      this.provider,
-      @JsonKey(name: 'created_at') required this.createdAt,
-      @JsonKey(name: 'updated_at') required this.updatedAt,
+      this.fullName,
+      this.documentType,
+      this.documentNumber,
+      this.taxRegime,
+      this.personType,
+      this.city,
+      this.department,
+      this.address,
+      this.phone,
+      this.socialId,
       this.isActive = false,
       this.isVerified = false});
 
@@ -344,41 +294,27 @@ class _$UserImpl implements _User {
   @override
   final String id;
   @override
-  @JsonKey(name: 'full_name')
-  final String fullName;
-  @override
   final String email;
   @override
-  @JsonKey(name: 'document_type')
-  final String documentType;
+  final String? fullName;
   @override
-  @JsonKey(name: 'document_number')
-  final String documentNumber;
+  final String? documentType;
   @override
-  @JsonKey(name: 'tax_regime')
-  final String taxRegime;
+  final String? documentNumber;
   @override
-  @JsonKey(name: 'person_type')
-  final String personType;
+  final String? taxRegime;
   @override
-  final String city;
+  final String? personType;
   @override
-  final String department;
+  final String? city;
   @override
-  final String address;
+  final String? department;
   @override
-  final String phone;
+  final String? address;
   @override
-  @JsonKey(name: 'social_id')
+  final String? phone;
+  @override
   final String? socialId;
-  @override
-  final AuthProvider? provider;
-  @override
-  @JsonKey(name: 'created_at')
-  final DateTime createdAt;
-  @override
-  @JsonKey(name: 'updated_at')
-  final DateTime updatedAt;
   @override
   @JsonKey()
   final bool isActive;
@@ -388,7 +324,7 @@ class _$UserImpl implements _User {
 
   @override
   String toString() {
-    return 'User(id: $id, fullName: $fullName, email: $email, documentType: $documentType, documentNumber: $documentNumber, taxRegime: $taxRegime, personType: $personType, city: $city, department: $department, address: $address, phone: $phone, socialId: $socialId, provider: $provider, createdAt: $createdAt, updatedAt: $updatedAt, isActive: $isActive, isVerified: $isVerified)';
+    return 'User(id: $id, email: $email, fullName: $fullName, documentType: $documentType, documentNumber: $documentNumber, taxRegime: $taxRegime, personType: $personType, city: $city, department: $department, address: $address, phone: $phone, socialId: $socialId, isActive: $isActive, isVerified: $isVerified)';
   }
 
   @override
@@ -397,9 +333,9 @@ class _$UserImpl implements _User {
         (other.runtimeType == runtimeType &&
             other is _$UserImpl &&
             (identical(other.id, id) || other.id == id) &&
+            (identical(other.email, email) || other.email == email) &&
             (identical(other.fullName, fullName) ||
                 other.fullName == fullName) &&
-            (identical(other.email, email) || other.email == email) &&
             (identical(other.documentType, documentType) ||
                 other.documentType == documentType) &&
             (identical(other.documentNumber, documentNumber) ||
@@ -415,12 +351,6 @@ class _$UserImpl implements _User {
             (identical(other.phone, phone) || other.phone == phone) &&
             (identical(other.socialId, socialId) ||
                 other.socialId == socialId) &&
-            (identical(other.provider, provider) ||
-                other.provider == provider) &&
-            (identical(other.createdAt, createdAt) ||
-                other.createdAt == createdAt) &&
-            (identical(other.updatedAt, updatedAt) ||
-                other.updatedAt == updatedAt) &&
             (identical(other.isActive, isActive) ||
                 other.isActive == isActive) &&
             (identical(other.isVerified, isVerified) ||
@@ -432,8 +362,8 @@ class _$UserImpl implements _User {
   int get hashCode => Object.hash(
       runtimeType,
       id,
-      fullName,
       email,
+      fullName,
       documentType,
       documentNumber,
       taxRegime,
@@ -443,9 +373,6 @@ class _$UserImpl implements _User {
       address,
       phone,
       socialId,
-      provider,
-      createdAt,
-      updatedAt,
       isActive,
       isVerified);
 
@@ -468,20 +395,17 @@ class _$UserImpl implements _User {
 abstract class _User implements User {
   const factory _User(
       {required final String id,
-      @JsonKey(name: 'full_name') required final String fullName,
       required final String email,
-      @JsonKey(name: 'document_type') required final String documentType,
-      @JsonKey(name: 'document_number') required final String documentNumber,
-      @JsonKey(name: 'tax_regime') required final String taxRegime,
-      @JsonKey(name: 'person_type') required final String personType,
-      required final String city,
-      required final String department,
-      required final String address,
-      required final String phone,
-      @JsonKey(name: 'social_id') final String? socialId,
-      final AuthProvider? provider,
-      @JsonKey(name: 'created_at') required final DateTime createdAt,
-      @JsonKey(name: 'updated_at') required final DateTime updatedAt,
+      final String? fullName,
+      final String? documentType,
+      final String? documentNumber,
+      final String? taxRegime,
+      final String? personType,
+      final String? city,
+      final String? department,
+      final String? address,
+      final String? phone,
+      final String? socialId,
       final bool isActive,
       final bool isVerified}) = _$UserImpl;
 
@@ -490,41 +414,27 @@ abstract class _User implements User {
   @override
   String get id;
   @override
-  @JsonKey(name: 'full_name')
-  String get fullName;
-  @override
   String get email;
   @override
-  @JsonKey(name: 'document_type')
-  String get documentType;
+  String? get fullName;
   @override
-  @JsonKey(name: 'document_number')
-  String get documentNumber;
+  String? get documentType;
   @override
-  @JsonKey(name: 'tax_regime')
-  String get taxRegime;
+  String? get documentNumber;
   @override
-  @JsonKey(name: 'person_type')
-  String get personType;
+  String? get taxRegime;
   @override
-  String get city;
+  String? get personType;
   @override
-  String get department;
+  String? get city;
   @override
-  String get address;
+  String? get department;
   @override
-  String get phone;
+  String? get address;
   @override
-  @JsonKey(name: 'social_id')
+  String? get phone;
+  @override
   String? get socialId;
-  @override
-  AuthProvider? get provider;
-  @override
-  @JsonKey(name: 'created_at')
-  DateTime get createdAt;
-  @override
-  @JsonKey(name: 'updated_at')
-  DateTime get updatedAt;
   @override
   bool get isActive;
   @override

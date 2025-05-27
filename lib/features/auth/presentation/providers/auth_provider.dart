@@ -24,8 +24,7 @@ class AuthNotifier extends StateNotifier<AsyncValue<AuthResponse?>> {
       rethrow;
     }
   }
-
-  Future<void> register({
+  Future<void> fullregister({
     required String email,
     required String password,
     required String fullName,
@@ -40,10 +39,10 @@ class AuthNotifier extends StateNotifier<AsyncValue<AuthResponse?>> {
   }) async {
     state = const AsyncValue.loading();
     try {
-      final response = await _repository.register(
+      final response = await _repository.fullregister(
+        fullName: fullName,
         email: email,
         password: password,
-        fullName: fullName,
         documentType: documentType,
         documentNumber: documentNumber,
         taxRegime: taxRegime,
@@ -52,6 +51,23 @@ class AuthNotifier extends StateNotifier<AsyncValue<AuthResponse?>> {
         department: department,
         address: address,
         phone: phone,
+      );
+      state = AsyncValue.data(response);
+    } catch (e, stack) {
+      state = AsyncValue.error(e, stack);
+      rethrow;
+    }
+  }
+
+  Future<void> register({
+    required String email,
+    required String password,
+  }) async {
+    state = const AsyncValue.loading();
+    try {
+      final response = await _repository.register(
+        email: email,
+        password: password,
       );
       state = AsyncValue.data(response);
     } catch (e, stack) {
