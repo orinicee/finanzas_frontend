@@ -67,7 +67,11 @@ class AppTheme {
           minimumSize: const Size(AppSpacing.buttonMinWidth, AppSpacing.buttonHeight),
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(AppSpacing.buttonBorderRadius),
+            side: const BorderSide(color: Colors.black26),
           ),
+          backgroundColor: Colors.white,
+          foregroundColor: Colors.black,
+          textStyle: const TextStyle(fontWeight: FontWeight.bold),
         ),
       ),
       outlinedButtonTheme: OutlinedButtonThemeData(
@@ -75,7 +79,9 @@ class AppTheme {
           minimumSize: const Size(AppSpacing.buttonMinWidth, AppSpacing.buttonHeight),
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(AppSpacing.buttonBorderRadius),
+            side: const BorderSide(color: Colors.black26),
           ),
+          foregroundColor: Colors.black,
         ),
       ),
       textButtonTheme: TextButtonThemeData(
@@ -88,18 +94,20 @@ class AppTheme {
       ),
       inputDecorationTheme: InputDecorationTheme(
         filled: true,
-        fillColor: Colors.grey[100],
+        fillColor: Colors.white,
+        labelStyle: const TextStyle(color: Colors.black87),
+        hintStyle: const TextStyle(color: Colors.black54),
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(AppSpacing.inputBorderRadius),
-          borderSide: BorderSide.none,
+          borderSide: const BorderSide(color: Colors.black26),
         ),
         enabledBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(AppSpacing.inputBorderRadius),
-          borderSide: BorderSide.none,
+          borderSide: const BorderSide(color: Colors.black26),
         ),
         focusedBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(AppSpacing.inputBorderRadius),
-          borderSide: const BorderSide(color: AppColors.primary),
+          borderSide: const BorderSide(color: AppColors.primary, width: 2),
         ),
         errorBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(AppSpacing.inputBorderRadius),
@@ -135,7 +143,7 @@ class AppTheme {
       brightness: Brightness.dark,
       scaffoldBackgroundColor: AppColors.background,
       primaryColor: AppColors.primary,
-      colorScheme: ColorScheme.dark(
+      colorScheme: const ColorScheme.dark(
         primary: AppColors.primary,
         secondary: AppColors.accent,
         background: AppColors.background,
@@ -150,13 +158,26 @@ class AppTheme {
       cardColor: AppColors.card,
       inputDecorationTheme: InputDecorationTheme(
         filled: true,
-        fillColor: AppColors.card,
+        fillColor: AppColors.darkSurface,
+        labelStyle: const TextStyle(color: Colors.white),
+        hintStyle: const TextStyle(color: Colors.white70),
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(16),
           borderSide: BorderSide.none,
         ),
+        enabledBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(16),
+          borderSide: BorderSide.none,
+        ),
+        focusedBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(16),
+          borderSide: const BorderSide(color: AppColors.primary),
+        ),
+        errorBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(16),
+          borderSide: const BorderSide(color: AppColors.error),
+        ),
         contentPadding: const EdgeInsets.symmetric(vertical: 16, horizontal: 20),
-        labelStyle: const TextStyle(color: AppColors.textSecondary),
       ),
       textTheme: const TextTheme(
         headlineLarge: TextStyle(
@@ -184,9 +205,19 @@ class AppTheme {
           foregroundColor: AppColors.textPrimary,
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(16),
+            side: BorderSide.none,
           ),
           textStyle: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
           padding: const EdgeInsets.symmetric(vertical: 16),
+        ),
+      ),
+      outlinedButtonTheme: OutlinedButtonThemeData(
+        style: OutlinedButton.styleFrom(
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(16),
+            side: BorderSide.none,
+          ),
+          foregroundColor: AppColors.textPrimary,
         ),
       ),
       textButtonTheme: TextButtonThemeData(

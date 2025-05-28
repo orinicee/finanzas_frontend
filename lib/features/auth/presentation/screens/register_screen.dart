@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import '../../../../core/theme/app_colors.dart';
+import '../../../../core/theme/app_spacing.dart';
 import '../providers/auth_provider.dart';
+import '../../../../core/theme/app_theme.dart';
 
 class RegisterScreen extends ConsumerStatefulWidget {
   const RegisterScreen({super.key});
@@ -24,18 +25,14 @@ class _RegisterScreenState extends ConsumerState<RegisterScreen> {
   }
 
   Future<void> _handleRegister() async {
-    print("Usuario registrado exitosamente Entro al 0");
     if (!_formKey.currentState!.validate()) return;
     setState(() => _isLoading = true);
-    print("Usuario registrado exitosamente Entro al 1");
     try {
       await ref.read(authStateProvider.notifier).register(
         email: _emailController.text,
         password: _passwordController.text,
       );
-      print("Usuario registrado exitosamente xxxx");
       if (mounted) {
-        print('Usuario registrado exitosamente y redirijido a la pantalla de inicio');
         Navigator.pushReplacementNamed(context, '/home');
       }
     } catch (e) {
@@ -43,7 +40,7 @@ class _RegisterScreenState extends ConsumerState<RegisterScreen> {
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
             content: Text(e.toString()),
-            backgroundColor: AppColors.error,
+            backgroundColor: Theme.of(context).colorScheme.error,
           ),
         );
       }
@@ -54,57 +51,51 @@ class _RegisterScreenState extends ConsumerState<RegisterScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final themeMode = ref.watch(themeProvider);
+    final isDark = themeMode == ThemeMode.dark;
     return Scaffold(
-      backgroundColor: AppColors.background,
+      backgroundColor: Theme.of(context).scaffoldBackgroundColor,
       body: Center(
         child: SingleChildScrollView(
           child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 24),
+            padding: const EdgeInsets.all(AppSpacing.lg),
             child: Column(
               mainAxisSize: MainAxisSize.min,
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
+                Row(
+                  children: [
+                    IconButton(
+                      icon: Icon(isDark ? Icons.dark_mode : Icons.light_mode),
+                      tooltip: isDark ? 'Cambiar a modo claro' : 'Cambiar a modo oscuro',
+                      onPressed: () => ref.read(themeProvider.notifier).toggleTheme(),
+                    ),
+                  ],
+                ),
                 Image.network(
                   'https://undraw.co/api/illustrations/undraw_investing_re_bov7.svg',
                   height: 140,
                   errorBuilder: (context, error, stackTrace) => const SizedBox(height: 140),
                 ),
-                const SizedBox(height: 16),
+                const SizedBox(height: AppSpacing.md),
                 Text(
                   'FINANZAS',
-                  style: Theme.of(context).textTheme.headlineLarge?.copyWith(
-                        color: AppColors.primary,
-                        letterSpacing: 2,
-                      ),
+                  style: Theme.of(context).textTheme.headlineLarge,
                 ),
-                const SizedBox(height: 16),
+                const SizedBox(height: AppSpacing.md),
                 Text(
                   'Crea una cuenta',
-                  style: Theme.of(context).textTheme.bodyLarge?.copyWith(
-                        color: AppColors.primary,
-                        fontWeight: FontWeight.bold,
-                        fontSize: 20,
-                      ),
+                  style: Theme.of(context).textTheme.bodyLarge,
                 ),
-                const SizedBox(height: 24),
+                const SizedBox(height: AppSpacing.lg),
                 Form(
                   key: _formKey,
                   child: Column(
                     children: [
                       TextFormField(
                         controller: _emailController,
-                        decoration: InputDecoration(
+                        decoration: const InputDecoration(
                           labelText: 'Correo electrónico',
-                          filled: true,
-                          fillColor: Colors.transparent,
-                          border: OutlineInputBorder(
-                            borderSide: BorderSide(color: Colors.grey.shade300),
-                          ),
-                          enabledBorder: OutlineInputBorder(
-                            borderSide: BorderSide(color: Colors.grey.shade300),
-                          ),
-                          focusedBorder: OutlineInputBorder(
-                            borderSide: BorderSide(color: Colors.grey.shade300),
-                          ),
                         ),
                         keyboardType: TextInputType.emailAddress,
                         validator: (value) {
@@ -117,22 +108,11 @@ class _RegisterScreenState extends ConsumerState<RegisterScreen> {
                           return null;
                         },
                       ),
-                      const SizedBox(height: 16),
+                      const SizedBox(height: AppSpacing.md),
                       TextFormField(
                         controller: _passwordController,
-                        decoration: InputDecoration(
+                        decoration: const InputDecoration(
                           labelText: 'Contraseña',
-                          filled: true,
-                          fillColor: Colors.transparent,
-                          border: OutlineInputBorder(
-                            borderSide: BorderSide(color: Colors.grey.shade300),
-                          ),
-                          enabledBorder: OutlineInputBorder(
-                            borderSide: BorderSide(color: Colors.grey.shade300),
-                          ),
-                          focusedBorder: OutlineInputBorder(
-                            borderSide: BorderSide(color: Colors.grey.shade300),
-                          ),
                         ),
                         obscureText: true,
                         validator: (value) {
@@ -145,7 +125,7 @@ class _RegisterScreenState extends ConsumerState<RegisterScreen> {
                           return null;
                         },
                       ),
-                      const SizedBox(height: 24),
+                      const SizedBox(height: AppSpacing.lg),
                       SizedBox(
                         width: double.infinity,
                         child: ElevatedButton(
@@ -159,21 +139,21 @@ class _RegisterScreenState extends ConsumerState<RegisterScreen> {
                               : const Text('Registrarse'),
                         ),
                       ),
-                      const SizedBox(height: 12),
+                      const SizedBox(height: AppSpacing.sm),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          const Text('¿Ya tienes una cuenta? ', style: TextStyle(color: AppColors.textSecondary)),
+                          Text('¿Ya tienes una cuenta? ', style: Theme.of(context).textTheme.bodyMedium),
                           GestureDetector(
                             onTap: () {
                               Navigator.pop(context);
                             },
-                            child: const Text(
+                            child: Text(
                               'Inicia sesión',
-                              style: TextStyle(
-                                color: AppColors.primary,
-                                fontWeight: FontWeight.bold,
-                              ),
+                              style: Theme.of(context).textTheme.bodyMedium?.copyWith(
+                                    color: Theme.of(context).colorScheme.primary,
+                                    fontWeight: FontWeight.bold,
+                                  ),
                             ),
                           ),
                         ],

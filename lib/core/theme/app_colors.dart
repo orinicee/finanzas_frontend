@@ -17,6 +17,8 @@ class AppColors {
   static const Color shadow = Color(0x33000000);
   // Error
   static const Color error = Color(0xFFFF4C4C);
+  // Color de borde
+  static const Color border = Color(0xFFE0E0E0);
 
   // Colores secundarios
   static const Color secondary = Color(0xFF03DAC6);

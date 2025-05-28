@@ -64,11 +64,11 @@ class _DeleteAccountScreenState extends ConsumerState<DeleteAccountScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Eliminar Cuenta'),
+        title: Text('Eliminar Cuenta', style: Theme.of(context).textTheme.headlineLarge),
       ),
       body: SafeArea(
         child: SingleChildScrollView(
-          padding: EdgeInsets.all(AppSpacing.lg),
+          padding: const EdgeInsets.all(AppSpacing.lg),
           child: Form(
             key: _formKey,
             child: Column(
@@ -79,21 +79,21 @@ class _DeleteAccountScreenState extends ConsumerState<DeleteAccountScreen> {
                   size: AppSpacing.iconSizeXl,
                   color: Theme.of(context).colorScheme.error,
                 ),
-                SizedBox(height: AppSpacing.lg),
+                const SizedBox(height: AppSpacing.lg),
                 Text(
                   'Eliminar Cuenta',
-                  style: AppTypography.headlineLarge,
+                  style: Theme.of(context).textTheme.headlineLarge,
                   textAlign: TextAlign.center,
                 ),
-                SizedBox(height: AppSpacing.md),
+                const SizedBox(height: AppSpacing.md),
                 Text(
                   'Esta acción es irreversible. Todos tus datos serán eliminados permanentemente.',
-                  style: AppTypography.bodyLarge.copyWith(
+                  style: Theme.of(context).textTheme.bodyLarge?.copyWith(
                     color: Theme.of(context).colorScheme.error,
                   ),
                   textAlign: TextAlign.center,
                 ),
-                SizedBox(height: AppSpacing.xxl),
+                const SizedBox(height: AppSpacing.xxl),
                 TextFormField(
                   controller: _passwordController,
                   decoration: const InputDecoration(
@@ -108,7 +108,7 @@ class _DeleteAccountScreenState extends ConsumerState<DeleteAccountScreen> {
                     return null;
                   },
                 ),
-                SizedBox(height: AppSpacing.md),
+                const SizedBox(height: AppSpacing.md),
                 CheckboxListTile(
                   value: _confirmDelete,
                   onChanged: (value) {
@@ -118,11 +118,11 @@ class _DeleteAccountScreenState extends ConsumerState<DeleteAccountScreen> {
                   },
                   title: Text(
                     'Entiendo que esta acción es irreversible y que todos mis datos serán eliminados permanentemente',
-                    style: AppTypography.bodyMedium,
+                    style: Theme.of(context).textTheme.bodyMedium,
                   ),
                   controlAffinity: ListTileControlAffinity.leading,
                 ),
-                SizedBox(height: AppSpacing.lg),
+                const SizedBox(height: AppSpacing.lg),
                 ElevatedButton(
                   onPressed: _isLoading ? null : _handleDeleteAccount,
                   style: ElevatedButton.styleFrom(
@@ -138,14 +138,12 @@ class _DeleteAccountScreenState extends ConsumerState<DeleteAccountScreen> {
                             valueColor: AlwaysStoppedAnimation<Color>(Colors.white),
                           ),
                         )
-                      : const Text('Eliminar Cuenta'),
+                      : Text('Eliminar Cuenta', style: Theme.of(context).textTheme.labelLarge),
                 ),
-                SizedBox(height: AppSpacing.md),
+                const SizedBox(height: AppSpacing.sm),
                 TextButton(
-                  onPressed: () {
-                    Navigator.pop(context);
-                  },
-                  child: const Text('Cancelar'),
+                  onPressed: () => Navigator.pop(context),
+                  child: Text('Cancelar', style: Theme.of(context).textTheme.labelLarge),
                 ),
               ],
             ),

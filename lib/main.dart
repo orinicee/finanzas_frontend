@@ -4,6 +4,11 @@ import 'core/theme/app_theme.dart';
 import 'features/auth/presentation/screens/home_screen.dart';
 import 'features/auth/presentation/screens/login_screen.dart';
 import 'features/auth/presentation/screens/register_screen.dart';
+import 'features/summary/presentation/screens/monthly_summary_screen.dart';
+import 'features/summary/presentation/screens/category_expenses_screen.dart';
+import 'features/summary/presentation/screens/balance_summary_screen.dart';
+import 'features/summary/presentation/screens/tax_report_screen.dart';
+import 'features/categories/presentation/screens/categories_screen.dart';
 
 void main() {
   runApp(
@@ -30,6 +35,11 @@ class MyApp extends ConsumerWidget {
         '/login': (context) => const LoginScreen(),
         '/register': (context) => const RegisterScreen(),
         '/home': (context) => const HomeScreen(),
+        '/monthly-summary': (context) => const MonthlySummaryScreen(),
+        '/category-expenses': (context) => const CategoryExpensesScreen(),
+        '/balance-summary': (context) => const BalanceSummaryScreen(),
+        '/tax-report': (context) => const TaxReportScreen(),
+        '/categories': (context) => const CategoriesScreen(),
       },
     );
   }
